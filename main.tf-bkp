@@ -1,0 +1,20 @@
+provider "aws" {
+  region = "us-west-2"  # Reemplaza con tu región de AWS
+}
+
+resource "aws_instance" "example" {
+  ami           = " al2023-ami-2023.3.20231218.0-kernel-6.1-x86_64"  # Reemplaza con tu AMI
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "example-instance"
+  }
+
+  user_data = <<-EOF
+            #!/bin/bash
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+            EOF
+}
+
