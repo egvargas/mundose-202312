@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "us-east-2"  # Reemplaza con tu región de AWS
+  region = "us-east-2"  
 }
 
 resource "aws_instance" "webserver_apache" {
-  ami           = "ami-0ee4f2271a4df2d7d"  # Reemplaza con tu AMI
+  ami           = "ami-0ee4f2271a4df2d7d"  
   instance_type = "t2.micro"
   associate_public_ip_address = true
   key_name                    = "mundose-202312"
